@@ -43,7 +43,7 @@ export default {
             //TODO implementar aquí su llamada deberemos cambiar la data de categories y de data
             var datos=[]
             var fechas=[]
-            await this.axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1').then((response)=>{
+            await this.axios.get('https://api.coingecko.com/api/v3/coins/'+this.cripto+'/market_chart?vs_currency='+this.moneda+'&days='+this.plazo+'').then((response)=>{
                 console.log(response);
                 response.data.prices.forEach(element => {
                     datos.push(element[1])
