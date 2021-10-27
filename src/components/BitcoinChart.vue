@@ -1,8 +1,13 @@
 <template>
     <v-container>
         <p>Aquí va a ir mi gráfica de bitcoin con {{cripto}} {{moneda}} {{plazo}}</p>
-        <apexchart width="500" type="bar" :options="options" :series="series"></apexchart>
+            <v-progress-circular
+      indeterminate
+      color="primary"
+      v-if="loading"
+    ></v-progress-circular>
 
+        <apexchart v-if="!loading" width="500" type="line" :options="options" :series="series" v-bind:key="series[0].data"></apexchart>
     </v-container>
 </template>
 
@@ -11,6 +16,10 @@ export default {
     props: ['cripto','moneda','plazo'],
 
     watch:{
+        series:function(newSeries,oldSeries){
+            console.log(newSeries);
+            console.log(oldSeries);
+        },
         cripto:function(newCripto,oldCripto){
             console.log(newCripto)
             console.log(oldCripto)
@@ -29,24 +38,38 @@ export default {
     },
     methods:{
 
-        cargarDatos(){
+        async cargarDatos(){
+            this.loading=true;
             //TODO implementar aquí su llamada deberemos cambiar la data de categories y de data
-            this.axios.get('').then((response)=>{
+            var datos=[]
+            var fechas=[]
+            await this.axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1').then((response)=>{
                 console.log(response);
-                this.options.xaxis;//Qué debemos meter aquí
-                this.series.data;//Qué debemos meter aquí
+                response.data.prices.forEach(element => {
+                    datos.push(element[1])
+                    fechas.push(element[0])
+                });
+
+
             })
+            this.options={
+                xaxis:{
+                    categories:fechas
+                }
+            }
+            this.series = [{
+                data: datos
+            }]
+            this.loading=false;
         }
     },
 
     data: ()=>({
+        loading:false,
       options: {
-        chart: {
-          id: 'vuechart-example'
-        },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+        },
       },
       series: [{
         name: 'series-1',
