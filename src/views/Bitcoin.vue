@@ -58,8 +58,8 @@ export default {
                 name:"Bitcoin"
             },
             {
-                id:"eth",
-                name:"Etherum"
+                id:"ethereum",
+                name:"Ethereum"
             }
         ],
         monedasCambio:[

@@ -31,7 +31,11 @@ export default {
 
         cargarDatos(){
             //TODO implementar aquí su llamada deberemos cambiar la data de categories y de data
-            alert("Debo cargar los datos");
+            this.axios.get('').then((response)=>{
+                console.log(response);
+                this.options.xaxis;//Qué debemos meter aquí
+                this.series.data;//Qué debemos meter aquí
+            })
         }
     },
 
