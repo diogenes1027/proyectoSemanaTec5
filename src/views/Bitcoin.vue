@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <h2>Análisis de bitcoin</h2>
+        <h2>Gráficas de cripto</h2>
         {{selectedCripto}} {{monedaCambio}} {{plazo}}
         <v-row style="margin-top:10px;">
             <v-col cols="12" md="4">
