@@ -3,6 +3,7 @@
     <h2>Hola {{usuario.nombre}} {{usuario.apellido}}, presionaste {{contador}} veces el botón</h2>
     <v-card style="padding:40px;">
     <v-text-field
+      id="nombre"
       v-model="usuario.nombre"
       label="Dime tu nombre"
       hide-details="auto"
