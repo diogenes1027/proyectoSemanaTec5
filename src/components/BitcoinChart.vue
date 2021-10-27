@@ -7,7 +7,7 @@
       v-if="loading"
     ></v-progress-circular>
 
-        <apexchart v-if="!loading" width="500" type="line" :options="options" :series="series" v-bind:key="series[0].data"></apexchart>
+        <apexchart v-if="!loading" width="100%" type="line" :options="options" :series="series" v-bind:key="series[0].data"></apexchart>
     </v-container>
 </template>
 
