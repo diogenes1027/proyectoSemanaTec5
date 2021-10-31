@@ -2,11 +2,11 @@
   <v-app>
     <v-app-bar
       app
-      color="purple"
+      color="green"
       dark
     >
       <div class="d-flex align-center">
-        <h1>Proyecto semana tec</h1>
+        <h2>Proyecto semana tec</h2>
       </div>
       <v-spacer></v-spacer>
 

@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Pokemon from '../views/Pokemon'
 import Bitcoin from '../views/Bitcoin'
+import Todo from '../views/Todo'
+import Coronavirus from '../views/Coronavirus'
+import Reporte from '../views/Reporte'
 
 Vue.use(VueRouter)
 
@@ -21,6 +24,21 @@ const routes = [
     path:'/bitcoin',
     name:'Bitcoin',
     component:Bitcoin
+  },
+  {
+    path:'/todo',
+    name:'Todo',
+    component:Todo
+  },
+  {
+    path:'/coronavirus',
+    name:'Coronavirus',
+    component:Coronavirus
+  },
+  {
+    path:'/reporte',
+    name:'Reporte',
+    component:Reporte
   },
   {
     path: '/about',
